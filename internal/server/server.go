@@ -7,6 +7,7 @@ import (
 	"os"
 	"strconv"
 	"time"
+	"validation-api/internal/db"
 	"validation-api/internal/util/helper"
 	"validation-api/internal/util/services"
 
@@ -15,6 +16,8 @@ import (
 
 type Server struct {
 	*helper.ServerHelper
+
+	Store *db.Queries
 
 	Auth *services.AuthService
 }

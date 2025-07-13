@@ -13,7 +13,7 @@ var defaultCORSSettings = [4]CORSOpt{
 	WithAllowCredentials("false"),
 }
 
-// WithAllowOrigin sets Allow-Origin header
+// WithAllowOrigin sets Allow-Origin header.
 // Default is *.
 func WithAllowOrigin(origins string) CORSOpt {
 	return func(w http.ResponseWriter) {
@@ -21,7 +21,7 @@ func WithAllowOrigin(origins string) CORSOpt {
 	}
 }
 
-// WithAllowMethods sets Allow-Methods header
+// WithAllowMethods sets Allow-Methods header.
 // Default is GET, POST, PUT, DELETE, OPTIONS, PATCH.
 func WithAllowMethods(methods string) CORSOpt {
 	return func(w http.ResponseWriter) {
@@ -29,7 +29,7 @@ func WithAllowMethods(methods string) CORSOpt {
 	}
 }
 
-// WithAllowHeaders sets Allow-Headers header
+// WithAllowHeaders sets Allow-Headers header.
 // Default is Accept, Authorization, Content-Type, X-CSRF-Token.
 func WithAllowHeaders(headers string) CORSOpt {
 	return func(w http.ResponseWriter) {

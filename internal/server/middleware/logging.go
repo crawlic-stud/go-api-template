@@ -18,7 +18,7 @@ func (lrw *loggingResponseWriter) WriteHeader(code int) {
 }
 
 func (lrw *loggingResponseWriter) Write(b []byte) (int, error) {
-	if lrw.statusCode >= 400 && lrw.statusCode < 500 {
+	if lrw.statusCode >= 400 {
 		lrw.errorMsg = string(b)
 	}
 	return lrw.ResponseWriter.Write(b)

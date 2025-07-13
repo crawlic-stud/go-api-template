@@ -48,7 +48,7 @@ func (helper *ServerHelper) ValidationError(w http.ResponseWriter, err error) {
 // InternalServerError writes 500 response and logs an error
 func (helper *ServerHelper) InternalServerError(w http.ResponseWriter, err error) {
 	log.Printf("Internal server error: %v", err)
-	helper.HTTPResponse(w, Error{Detail: "Internal ServerHelper Error"}, http.StatusInternalServerError)
+	helper.HTTPResponse(w, Error{Detail: "Internal Server Error"}, http.StatusInternalServerError)
 }
 
 // HTTPResponse writes response with model and status code
