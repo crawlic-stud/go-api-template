@@ -4,14 +4,17 @@ import (
 	"log"
 	"net/http"
 	"strings"
-	"validation-api/internal/server"
+	"template-api/internal/server"
+
+	"github.com/gorilla/websocket"
 )
 
 type Router struct {
 	*http.ServeMux
 	*server.Server
-	prefix string
-	logger *log.Logger
+	prefix   string
+	logger   *log.Logger
+	upgrader websocket.Upgrader
 }
 
 func (router *Router) Log(msg string, args ...interface{}) {
@@ -29,6 +32,19 @@ func NewRouter(server *server.Server, prefix string, logger *log.Logger) *Router
 
 func (router *Router) Route(pattern string, handler func(w http.ResponseWriter, r *http.Request)) {
 	router.HandleFunc(router.addPrefixToPattern(pattern), handler)
+}
+
+func (router *Router) Websocket(pattern string, handler func(conn *websocket.Conn, w http.ResponseWriter, r *http.Request)) {
+	router.HandleFunc(pattern, func(w http.ResponseWriter, r *http.Request) {
+		conn, err := router.upgrader.Upgrade(w, r, nil)
+		if err != nil {
+			router.logger.Println("Failed to upgrade connection")
+			router.InternalServerError(w, err)
+			return
+		}
+		handler(conn, w, r)
+		defer conn.Close()
+	})
 }
 
 func (router *Router) addPrefixToPattern(pattern string) (path string) {

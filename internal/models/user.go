@@ -1,6 +1,6 @@
 package models
 
-import "validation-api/internal/util/validation"
+import "template-api/internal/util/validation"
 
 type LoginUser struct {
 	Username string `json:"username"`

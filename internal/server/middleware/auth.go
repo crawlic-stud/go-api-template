@@ -4,9 +4,9 @@ import (
 	"context"
 	"net/http"
 	"strings"
+	"template-api/internal/util/helper"
+	"template-api/internal/util/services"
 	"time"
-	"validation-api/internal/util/helper"
-	"validation-api/internal/util/services"
 )
 
 func getTokenFromHeader(r *http.Request) string {

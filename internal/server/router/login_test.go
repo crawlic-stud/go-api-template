@@ -2,8 +2,8 @@ package router
 
 import (
 	"context"
+	"template-api/internal/db"
 	"testing"
-	"validation-api/internal/db"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -28,7 +28,7 @@ func TestLogin(t *testing.T) {
 
 		assert.Equal(t, 200, recorder.Result().StatusCode)
 
-		result := scanReader[map[string]string](t, recorder.Body)
+		result := fromReader[map[string]string](t, recorder.Body)
 		token, ok := result["token"]
 		assert.True(t, ok)
 		assert.NotEmpty(t, token)

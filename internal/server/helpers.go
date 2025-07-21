@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"validation-api/internal/util/validation"
+	"template-api/internal/util/validation"
 )
 
 // GetBody scans into struct and validates JSON body

@@ -7,12 +7,12 @@ import (
 	"net/http"
 	"os"
 
-	"validation-api/internal/db"
-	"validation-api/internal/server"
-	"validation-api/internal/server/middleware"
-	"validation-api/internal/server/router"
-	"validation-api/internal/util/helper"
-	"validation-api/internal/util/services"
+	"template-api/internal/db"
+	"template-api/internal/server"
+	"template-api/internal/server/middleware"
+	"template-api/internal/server/router"
+	"template-api/internal/util/helper"
+	"template-api/internal/util/services"
 
 	"github.com/jackc/pgx/v5/pgxpool"
 )

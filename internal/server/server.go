@@ -6,10 +6,10 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"template-api/internal/db"
+	"template-api/internal/util/helper"
+	"template-api/internal/util/services"
 	"time"
-	"validation-api/internal/db"
-	"validation-api/internal/util/helper"
-	"validation-api/internal/util/services"
 
 	_ "github.com/joho/godotenv/autoload"
 )

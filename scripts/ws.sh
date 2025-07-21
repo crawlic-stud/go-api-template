@@ -9,11 +9,13 @@ echo "" > internal/server/router/$name.go
 echo "package router" >> internal/server/router/$name.go
 echo "" >> internal/server/router/$name.go
 
+
 echo "import (" >> internal/server/router/$name.go
 echo "	\"net/http\"" >> internal/server/router/$name.go
+echo "   \"github.com/gorilla/websocket\" " >> internal/server/router/$name.go
 echo ")" >> internal/server/router/$name.go
 echo "" >> internal/server/router/$name.go
 
-echo "func (api *Router) $camelName(w http.ResponseWriter, r *http.Request) {" >> internal/server/router/$name.go
+echo "func (api *Router) $camelName(conn *websocket.Conn, w http.ResponseWriter, r *http.Request) {" >> internal/server/router/$name.go
 echo "" >> internal/server/router/$name.go
 echo "}" >> internal/server/router/$name.go

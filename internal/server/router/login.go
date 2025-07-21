@@ -3,7 +3,7 @@ package router
 import (
 	"fmt"
 	"net/http"
-	"validation-api/internal/models"
+	"template-api/internal/models"
 )
 
 func (api *Router) Login(w http.ResponseWriter, r *http.Request) {

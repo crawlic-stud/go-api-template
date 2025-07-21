@@ -11,12 +11,12 @@ import (
 	"net/http/httptest"
 	"os"
 	"strings"
+	"template-api/internal/db"
+	"template-api/internal/server"
+	"template-api/internal/util/helper"
+	"template-api/internal/util/services"
 	"testing"
 	"time"
-	"validation-api/internal/db"
-	"validation-api/internal/server"
-	"validation-api/internal/util/helper"
-	"validation-api/internal/util/services"
 
 	"github.com/jackc/pgx/v5/pgxpool"
 )
@@ -141,7 +141,7 @@ func (s *setup) POST(url, body string) *http.Request {
 	return req
 }
 
-func scanReader[T any](t *testing.T, reader io.Reader) T {
+func fromReader[T any](t *testing.T, reader io.Reader) T {
 	var model T
 	err := json.NewDecoder(reader).Decode(&model)
 	if err != nil {

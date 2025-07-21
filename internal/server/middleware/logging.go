@@ -2,8 +2,8 @@ package middleware
 
 import (
 	"net/http"
+	"template-api/internal/util/helper"
 	"time"
-	"validation-api/internal/util/helper"
 )
 
 type loggingResponseWriter struct {
